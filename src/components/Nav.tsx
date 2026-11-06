@@ -55,17 +55,17 @@ export function Nav() {
               alt="Логотип"
               className="h-9 w-9 shrink-0 rounded-full object-cover shadow-[0_0_16px_rgba(155,240,11,0.3)] ring-2 ring-xbox/60 transition-all duration-300 group-hover:shadow-[0_0_26px_rgba(155,240,11,0.55)] group-hover:ring-xbox"
             />
-            <span className="hidden min-w-0 flex-col leading-none sm:flex">
-              <span className="font-display truncate text-[13px] font-semibold uppercase tracking-wide text-white">
+            <span className="flex min-w-0 flex-col leading-none">
+              <span className="font-display truncate text-[11px] font-semibold uppercase tracking-wide text-white sm:text-[13px]">
                 Xbox&nbsp;Live&nbsp;Fix
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ash">
+              <span className="truncate font-mono text-[8px] uppercase tracking-[0.2em] text-ash sm:text-[10px] sm:tracking-[0.3em]">
                 keenetic&nbsp;edition
               </span>
             </span>
           </a>
 
-          <div className="ml-auto flex items-center gap-1.5 md:gap-2">
+          <div className="ml-auto flex shrink-0 items-center gap-1.5 md:gap-2">
             {/* desktop nav */}
             <nav className="hidden items-center gap-0.5 md:flex">
               {LINKS.map((l) => (

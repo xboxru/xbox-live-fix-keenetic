@@ -150,7 +150,7 @@ export function Footer() {
                   настройка dns
                 </a>
               </div>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] text-ash">
+              <div className="flex flex-wrap gap-x-6 gap-y-2 break-all font-mono text-[10px] text-ash">
                 <span>no ip host</span>
                 <span className="text-xbox/60">·</span>
                 <span>ip host xsts.auth.xboxlive.com 164.90.228.248</span>

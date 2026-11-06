@@ -184,7 +184,7 @@ export function Hero() {
                 live
               </span>
             </div>
-            <div className="relative min-h-[300px] px-5 py-5 font-mono text-[12.5px] leading-[1.9] sm:text-[13.5px]">
+            <div className="relative min-h-[280px] overflow-hidden px-3.5 py-5 font-mono text-[11px] leading-[1.8] [overflow-wrap:anywhere] sm:min-h-[300px] sm:px-5 sm:text-[13.5px] sm:leading-[1.9]">
               <div className="scanline pointer-events-none absolute left-0 top-0 h-10 w-full bg-gradient-to-b from-transparent via-xbox/[0.05] to-transparent" />
               {lines.map((l, i) =>
                 l.tone === "cmd" ? (
@@ -215,7 +215,7 @@ export function Hero() {
       </div>
 
       {/* marquee */}
-      <div className="relative border-y border-line/70 bg-panel/60 py-3.5 backdrop-blur">
+      <div className="relative overflow-hidden border-y border-line/70 bg-panel/60 py-3.5 backdrop-blur">
         <div className="animate-marquee flex w-max items-center gap-8 whitespace-nowrap">
           {[...MARQUEE, ...MARQUEE, ...MARQUEE, ...MARQUEE].map((m, i) => (
             <span key={i} className="flex items-center gap-8 font-mono text-[11px] font-bold uppercase tracking-[0.3em] text-ash">

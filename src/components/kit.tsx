@@ -89,7 +89,7 @@ export function CommandCard({
       </div>
       <div className="flex items-center gap-3 px-4 py-4 sm:px-5">
         <span className="select-none font-mono text-xbox/70">&gt;</span>
-        <code className="min-w-0 flex-1 overflow-x-auto whitespace-nowrap font-mono text-sm text-mint sm:text-[15px]">
+        <code className="min-w-0 flex-1 [overflow-wrap:anywhere] font-mono text-[12.5px] leading-relaxed text-mint sm:text-[15px]">
           {command}
         </code>
         <CopyButton text={command} />
@@ -139,7 +139,7 @@ export function ResponseBlock({
       <div className="px-4 pb-3">
         <code
           className={cn(
-            "block font-mono text-[13px] leading-relaxed sm:text-sm",
+            "block [overflow-wrap:anywhere] font-mono text-[11.5px] leading-relaxed sm:text-sm",
             ok ? "text-xbox terminal-glow" : "text-alert"
           )}
         >

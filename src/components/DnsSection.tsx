@@ -8,11 +8,11 @@ const PRIMARY_DNS = [
 ];
 
 const BACKUP_DNS: { value: string | null; badge?: string }[] = [
-  { value: "-" },
-  { value: "-" },
+  { value: "111.88.96.50" },
+  { value: "111.88.96.51" },
   { value: null },
   { value: "201.79.94.91", badge: "стабильный" },
-  { value: "-" },
+  { value: "195.123.210.89" },
   { value: "95.216.232.133" },
 ];
 

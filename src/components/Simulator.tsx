@@ -116,7 +116,7 @@ export function Simulator() {
 
         <div className="mx-auto mt-14 grid max-w-5xl items-start gap-10 lg:grid-cols-[0.7fr_1.3fr]">
           {/* side info */}
-          <Reveal className="space-y-5 lg:sticky lg:top-28">
+          <Reveal className="min-w-0 space-y-5 lg:sticky lg:top-28">
             <div className="rounded-xl border border-line bg-panel p-5">
               <p className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-xbox">
                 <FlaskConical className="h-3.5 w-3.5" />
@@ -148,7 +148,7 @@ export function Simulator() {
                     key={s.cmd}
                     onClick={state === "current" ? fill : undefined}
                     className={cn(
-                      "flex w-full items-center gap-3 rounded-lg border px-3.5 py-2.5 text-left font-mono text-[11px] transition-all duration-300",
+                      "flex w-full min-w-0 items-center gap-3 rounded-lg border px-3.5 py-2.5 text-left font-mono text-[10.5px] transition-all duration-300 sm:text-[11px]",
                       state === "done" && "border-xbox/25 bg-xbox/[0.06] text-xbox/80",
                       state === "current" &&
                         "border-xbox/50 bg-xbox/10 text-mint cursor-pointer hover:bg-xbox/15",
@@ -162,7 +162,7 @@ export function Simulator() {
                     ) : (
                       <Lock className="h-3 w-3 shrink-0" />
                     )}
-                    <span className="truncate">{s.cmd}</span>
+                    <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">{s.cmd}</span>
                   </button>
                 );
               })}
@@ -170,10 +170,10 @@ export function Simulator() {
           </Reveal>
 
           {/* terminal frame */}
-          <Reveal delay={0.15}>
-            <div className="glow-ring overflow-hidden rounded-2xl border border-line-2 bg-panel">
+          <Reveal delay={0.15} className="min-w-0">
+            <div className="glow-ring min-w-0 overflow-hidden rounded-2xl border border-line-2 bg-panel">
               {/* chrome */}
-              <div className="flex items-center gap-3 border-b border-line bg-panel-2 px-5 py-3.5">
+              <div className="flex items-center gap-3 border-b border-line bg-panel-2 px-4 py-3.5 sm:px-5">
                 <span className="font-display text-[12px] font-semibold lowercase text-fog">
                   keenetic
                 </span>
@@ -195,7 +195,7 @@ export function Simulator() {
               {/* log */}
               <div
                 ref={logRef}
-                className="relative h-[300px] overflow-y-auto scroll-smooth px-5 py-4 font-mono text-[12px] leading-[2] sm:text-[13px]"
+                className="relative h-[260px] overflow-y-auto overflow-x-hidden scroll-smooth px-3.5 py-4 font-mono text-[11px] leading-[1.75] sm:h-[300px] sm:px-5 sm:text-[13px] sm:leading-[2]"
               >
                 <AnimatePresence initial={false}>
                   {entries.map((e, i) => (
@@ -205,6 +205,7 @@ export function Simulator() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
                       className={cn(
+                        "min-w-0 [overflow-wrap:anywhere]",
                         e.kind === "cmd" && "text-mint",
                         e.kind === "ok" && "text-xbox terminal-glow",
                         e.kind === "err" && "text-alert",
@@ -222,37 +223,39 @@ export function Simulator() {
               </div>
 
               {/* input row */}
-              <div className={cn("border-t border-line bg-panel-2/60 px-4 py-4 sm:px-5", shake && "animate-shake")}>
-                <div className="flex flex-col gap-2.5 sm:flex-row">
-                  <div className="flex flex-1 items-center gap-2.5 rounded-xl border border-line-2 bg-void px-4 focus-within:border-xbox/60">
-                    <span className="select-none font-mono text-sm text-xbox/70">&gt;</span>
+              <div className={cn("border-t border-line bg-panel-2/60 px-3.5 py-4 sm:px-5", shake && "animate-shake")}>
+                <div className="flex min-w-0 flex-col gap-2.5 sm:flex-row">
+                  <div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-line-2 bg-void px-3 focus-within:border-xbox/60 sm:gap-2.5 sm:px-4">
+                    <span className="shrink-0 select-none font-mono text-sm text-xbox/70">&gt;</span>
                     <input
                       ref={inputRef}
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && send()}
                       disabled={done}
-                      placeholder={done ? "готово — симуляция завершена" : "вставьте команду…"}
+                      size={1}
+                      placeholder={done ? "готово" : "вставьте команду…"}
                       spellCheck={false}
                       autoComplete="off"
-                      className="h-12 w-full bg-transparent font-mono text-[13px] text-mint placeholder:text-ash/70 focus:outline-none disabled:opacity-50"
+                      className="h-12 w-full min-w-0 bg-transparent font-mono text-[12px] text-mint placeholder:text-ash/70 focus:outline-none disabled:opacity-50 sm:text-[13px]"
                     />
                   </div>
-                  <div className="flex gap-2.5">
+                  <div className="flex min-w-0 gap-2.5">
                     <button
                       onClick={fill}
                       disabled={done}
-                      className="inline-flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border border-line-2 bg-panel px-4 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-fog transition-all hover:border-xbox/50 hover:text-xbox disabled:opacity-40 sm:flex-none"
+                      className="inline-flex min-w-0 flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border border-line-2 bg-panel px-3 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-fog transition-all hover:border-xbox/50 hover:text-xbox disabled:opacity-40 sm:flex-none sm:px-4 sm:tracking-[0.15em]"
                     >
-                      <ClipboardPaste className="h-3.5 w-3.5" />
+                      <ClipboardPaste className="h-3.5 w-3.5 shrink-0" />
                       Вставить
                     </button>
                     <button
                       onClick={send}
                       disabled={done}
-                      className="inline-flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl bg-xbox px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-void transition-all hover:shadow-[0_0_30px_rgba(155,240,11,0.4)] disabled:opacity-40 sm:flex-none"
+                      className="inline-flex min-w-0 flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl bg-xbox px-3 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-void transition-all hover:shadow-[0_0_30px_rgba(155,240,11,0.4)] disabled:opacity-40 sm:flex-none sm:px-5 sm:tracking-[0.15em]"
                     >
-                      Отправить запрос
+                      <span className="sm:hidden">Отправить</span>
+                      <span className="hidden sm:inline">Отправить запрос</span>
                     </button>
                   </div>
                 </div>

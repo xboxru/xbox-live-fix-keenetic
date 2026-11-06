@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { BookOpen, Gamepad2, Globe, Minus, Plus, Send } from "lucide-react";
+import { BookOpen, Globe, Minus, Plus, Send } from "lucide-react";
+import logo from "../../public/images/logo.jpg";
 import { Reveal, SectionHeading } from "./kit";
 import { cn } from "../utils/cn";
 
@@ -98,9 +99,11 @@ export function Footer() {
         <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-xbox/15 text-xbox ring-1 ring-xbox/40">
-                <Gamepad2 className="h-5 w-5" />
-              </span>
+              <img
+                src={logo}
+                alt="Логотип"
+                className="h-10 w-10 rounded-full object-cover ring-2 ring-xbox/60 shadow-[0_0_16px_rgba(155,240,11,0.3)]"
+              />
               <div className="leading-tight">
                 <p className="font-display text-[13px] font-semibold uppercase text-white">
                   Xbox Live Fix

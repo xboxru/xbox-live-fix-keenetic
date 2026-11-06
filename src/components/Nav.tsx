@@ -1,5 +1,6 @@
 import { motion, useScroll, useSpring } from "framer-motion";
-import { BookOpen, Gamepad2, Globe, Send, Server, Terminal } from "lucide-react";
+import { BookOpen, Globe, Send, Server, Terminal } from "lucide-react";
+import logo from "../../public/images/logo.jpg";
 
 const LINKS = [
   { href: "#steps", label: "Шаги" },
@@ -24,9 +25,11 @@ export function Nav() {
       <div className="border-b border-line/60 bg-void/75 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-5 sm:px-8">
           <a href="#top" className="group flex items-center gap-3">
-            <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-xbox/15 text-xbox ring-1 ring-xbox/40 transition-all duration-300 group-hover:bg-xbox group-hover:text-void">
-              <Gamepad2 className="h-5 w-5" />
-            </span>
+            <img
+              src={logo}
+              alt="Логотип"
+              className="h-9 w-9 shrink-0 rounded-full object-cover ring-2 ring-xbox/60 shadow-[0_0_16px_rgba(155,240,11,0.3)] transition-all duration-300 group-hover:shadow-[0_0_26px_rgba(155,240,11,0.55)] group-hover:ring-xbox"
+            />
             <span className="hidden flex-col leading-none sm:flex">
               <span className="font-display text-[13px] font-semibold uppercase tracking-wide text-white">
                 Xbox&nbsp;Live&nbsp;Fix
